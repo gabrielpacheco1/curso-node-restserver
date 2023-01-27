@@ -1,5 +1,6 @@
 const express = require('express')
 const cors= require('cors') //ayuda a restringir los dominios que pueden usar la API
+const { dbConnection } = require('../database/config')
 
 class Server {
 
@@ -8,11 +9,18 @@ class Server {
         this.puerto= process.env.PORT
         this.usuariosPath= '/api/usuarios'
 
+        //Conectar a BD
+        this.conectarDB()
+
         //Middlewares
         this.middlewares()
 
         //Rutas de la app
         this.routes()
+    }
+
+    async conectarDB(){
+        await dbConnection()
     }
 
     middlewares(){
