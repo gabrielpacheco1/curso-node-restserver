@@ -45,4 +45,4 @@ UsuarioSchema.methods.toJSON = function() { //debe ser una funcion normal
     return usuario
 }
 
-module.exports= model('Usuarios', UsuarioSchema)
+module.exports= model('Usuario', UsuarioSchema)
